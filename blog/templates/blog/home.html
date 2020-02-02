@@ -1,0 +1,103 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <center>
+        <div id="ex1">
+    <form method="POST" action="/home/">
+        {% csrf_token %}
+        <legend><center><h2><span style="color:#8866ff">Mid Semester Exam Result</span></h2></center></legend>
+         <h3>Enter Your Enrollment No.</h3>
+        <div class="form-group">
+            <div class="col-lg-5">
+                <input type="text" name="srh" class="form-control" >
+            </div>
+
+            <br>
+            <label class="col-lg-2">
+                <button type="submit" class="btn btn-danger">Search</button>
+            </label>
+        </div>
+    </form>
+        </div>
+    <div>
+        {% if messages %}
+            <ul class="messages">
+                {% for k in messages %}
+                <li style="color: red">{{ k }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div><br>
+        <center>
+    <div style="color:blue">
+        {% if sr %}
+            {% for k in sr %}
+            <table border="1px" width="500px" height="200px" bordercolor="black"   >
+                <tr align="center">
+                    <td>Name</td>
+                    <td>{{ k.name }}</td>
+                </tr>
+                <tr align="center">
+                    <td>Enrollment No</td>
+                    <td>{{ k.enno }}</td>
+                </tr>
+                <tr align="center">
+                    <td>Semester</td>
+                    <td>{{ k.sem }}</td>
+                </tr>
+                <tr align="center">
+                    <td>Branch</td>
+                    <td>{{ k.branch }}</td>
+                </tr>
+            </table>
+
+        <br>
+                <table border="1px" width="500px" height="400px" bordercolor="black"  >
+                <tr align="center">
+                    <th>Subname</th>
+                    <th>OutofMid</th>
+                    <th>MidMark</th>
+                    <th>MidRemedialMark</th>
+                </tr>
+                <tr align="center">
+                    <th>{{ k.subject1 }}</th>
+                    <td>{{ k.outofmidsub1 }}</td>
+                    <td>{{ k.sub1mark }}</td>
+                    <td>{{ k.remidsub1mark }}</td>
+                </tr>
+                <tr align="center">
+                    <th>{{ k.subject2 }}</th>
+                    <td>{{ k.outofmidsub2 }}</td>
+                    <td>{{ k.sub2mark }}</td>
+                    <td>{{ k.remidsub2mark }}</td>
+                </tr>
+                <tr align="center">
+                    <th>{{ k.subject3 }}</th>
+                    <td>{{ k.outofmidsub3 }}</td>
+                    <td>{{ k.sub3mark }}</td>
+                    <td>{{ k.remidsub3mark }}</td>
+                </tr>
+                <tr align="center">
+                    <th>{{ k.subject4 }}</th>
+                    <td>{{ k.outofmidsub4 }}</td>
+                    <td>{{ k.sub4mark }}</td>
+                    <td>{{ k.remidsub4mark }}</td>
+                </tr>
+                <tr align="center">
+                    <th>{{ k.subject5 }}</th>
+                    <td>{{ k.outofmidsub5 }}</td>
+                    <td>{{ k.sub5mark }}</td>
+                    <td>{{ k.remidsub5mark }}</td>
+                </tr>
+
+            </table>
+        <hr>
+            {% endfor %}
+        {% endif %}
+        </center>
+    </center>
+    </div>
+</div>
+{% endblock content %}
+

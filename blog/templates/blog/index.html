@@ -1,0 +1,21 @@
+{% if obj %}
+{% for k in obj %}
+{{ k.name }}<br>
+    {{ k.sem }}<br>
+    {{ k.branch }}<br>
+    {{ k.enno }}<br>
+    {{ k.subject1 }}<br>
+    {{ k.subject2 }}<br>
+    {{ k.subject3 }}<br>
+    {{ k.subject4 }}<br>
+    {{ k.subject5 }}<br>
+    {{ k.sub1mark }}<br>
+    {{ k.sub2mark }}<br>
+    {{ k.sub3mark }}<br>
+    {{ k.sub4mark }}<br>
+    {{ k.sub5mark }}<br>
+    {{ k.outofmid }}<br>
+    <hr>
+
+{% endfor %}
+{% endif %}
