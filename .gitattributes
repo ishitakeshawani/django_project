@@ -1,2 +1,1 @@
-*.tcl linguist-detectable=false
-*.* linguist-language=Django
+*.* linguist-language=python
